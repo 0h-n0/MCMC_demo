@@ -14,6 +14,7 @@ ln1, = plt.plot([], [], 'ro', animated=True)
 num_total_frames = 5000
 
 an = np.linspace(0, 2 * np.pi, 100)
+
 ax.plot(np.cos(an), np.sin(an))
 x_cords = 2*np.random.rand(num_total_frames) - 1
 y_cords = 2*np.random.rand(num_total_frames) - 1
@@ -42,11 +43,9 @@ def update(frame):
     ln1.set_data(xdata2, ydata2)
     return ln, ln1
 
-#text.set_text("{}/{}".format(len(_num), 1000))
 
 anim = FuncAnimation(fig, update, frames=np.arange(0, num_total_frames),
                     init_func=init, blit=True)
 
-anim.save('basic_animation.mp4', fps=60, dpi=300)# extra_args=['-vcodec', 'libx264'])
-#ax.text(0, 0, "{}/{}".format(len(_num), num_total_frames))
+anim.save('anim.mp4', fps=60, dpi=300)
 plt.show()
